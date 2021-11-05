@@ -17,34 +17,39 @@ eggshell F4ECD6 -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
     <style>
-    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    .map { position: absolute; top: 0; bottom: 0; width: 100%;
+    opacity: 0;
+    margin: 10px;
+    transition: opacity 1.2s;
+    -webkit-transition: opacity 1.2s;
+    }
 
-		p {
-			font-family: 'Open Sans', sans-serif;
-			color:#353536;
-			font-weight:300;
-		}
+    p {
+        font-family: 'Open Sans', sans-serif;
+        color:#353536;
+        font-weight:300;
+    }
 
-		svg {
-			width:100%;
-			height:600px;
-			padding-left:5%;
-			padding-right:50px;		
-		}
-		
-		h1 {
-			font-size:80px;
-            color:"#310A31";
-			font-weight:600;
-			line-height:1.3;
-		}
+    svg {
+        width:100%;
+        height:600px;
+        padding-left:5%;
+        padding-right:50px;		
+    }
+    
+    h1 {
+        font-size:80px;
+        color:"#310A31";
+        font-weight:600;
+        line-height:1.3;
+    }
 
-        h2 {
-            font-size:60px;
-            color:"#847996";
-            font-weight:400;
-            line-height:1.2;
-        }
+    h2 {
+        font-size:60px;
+        color:"#847996";
+        font-weight:400;
+        line-height:1.2;
+    }
 		
 		#firstvisualdiv{
           position: -webkit-sticky;
@@ -118,7 +123,7 @@ eggshell F4ECD6 -->
      	<div class="col-4">
         <h2>Primary Question & Motivations</h2>
         <br><br>
-     	<p d="text1">For our project, we are focusing telling the stories surrounding the financial burden faced by Northern Triangle migrants during and after they attempt to migrate.</p>
+     	<p id="text1">For our project, we are focusing telling the stories surrounding the financial burden faced by Northern Triangle migrants during and after they attempt to migrate.</p>
      	<br><br>
      	<p id="text2">Most migrations from the Northern Triangle are "irregular", and such a journey often poses more costs to a migrant than by regular means (which are not usually optional).</p>
      	<br><br>
@@ -187,7 +192,7 @@ eggshell F4ECD6 -->
         <br><br>
      	</div>
      	<div class="col-8">
-     		<div id="map" style="border-style: dotted;
+     		<div class="map" id="map" style="border-style: dotted;
              border-color:'#8698A6'">
      		</div>
      	</div>
@@ -267,17 +272,9 @@ map.addLayer({
         	.setClassToggle(".text3opacity", "active") 
         	.addTo(controller);
 
-        new ScrollMagic.Scene({triggerElement: "#text4"})
-            .setClassToggle("#firstvisualdiv", "active") 
-            .addTo(controller);
-
-        new ScrollMagic.Scene({triggerElement: "#text5"})
-            .setClassToggle(".img", "active") 
-            .addTo(controller);
-            
         new ScrollMagic.Scene({triggerElement: "#map-text"})
-            .setClassToggle(".map", "active") 
-            .addTo(controller);
+        	.setClassToggle(".map", "active") 
+        	.addTo(controller);
 								
 </script>
 </body>
